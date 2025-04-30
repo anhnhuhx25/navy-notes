@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navy Notes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Navigation Bar -->
+        <header class="top-bar">
+            <div class="app-title">
+                <i class="fas fa-book"></i>
+                <h1>Navy Notes</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search notes...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="user-profile">
+                <button class="profile-btn">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Left Sidebar - Notebooks -->
+            <aside class="notebooks-sidebar">
+                <div class="sidebar-header">
+                    <h2>Notebooks</h2>
+                    <button class="add-btn" id="add-notebook-btn"><i class="fas fa-plus"></i></button>
+                </div>
+                <ul class="notebooks-list" id="notebooks-list">
+                    <li class="notebook active" data-id="notebook-1">
+                        <i class="fas fa-book"></i>
+                        <span>Work</span>
+                    </li>
+                    <li class="notebook" data-id="notebook-2">
+                        <i class="fas fa-book"></i>
+                        <span>Personal</span>
+                    </li>
+                    <li class="notebook" data-id="notebook-3">
+                        <i class="fas fa-book"></i>
+                        <span>Project Ideas</span>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Middle Sidebar - Sections/Notes -->
+            <aside class="notes-sidebar">
+                <div class="sidebar-header">
+                    <h2>Notes</h2>
+                    <button class="add-btn" id="add-note-btn"><i class="fas fa-plus"></i></button>
+                </div>
+                <ul class="notes-list" id="notes-list">
+                    <li class="note active" data-id="note-1">
+                        <div class="note-title">Meeting Notes</div>
+                        <div class="note-preview">Team sync discussion about Q3 goals and priorities...</div>
+                        <div class="note-date">Apr 30, 2025</div>
+                    </li>
+                    <li class="note" data-id="note-2">
+                        <div class="note-title">Project Timeline</div>
+                        <div class="note-preview">Key milestones for the upcoming project launch...</div>
+                        <div class="note-date">Apr 29, 2025</div>
+                    </li>
+                    <li class="note" data-id="note-3">
+                        <div class="note-title">Ideas</div>
+                        <div class="note-preview">Brainstorming session for new features and improvements...</div>
+                        <div class="note-date">Apr 28, 2025</div>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Main Content Area - Note Editor -->
+            <main class="note-editor">
+                <div class="editor-toolbar">
+                    <div class="toolbar-group">
+                        <button class="toolbar-btn" data-command="bold"><i class="fas fa-bold"></i></button>
+                        <button class="toolbar-btn" data-command="italic"><i class="fas fa-italic"></i></button>
+                        <button class="toolbar-btn" data-command="underline"><i class="fas fa-underline"></i></button>
+                        <button class="toolbar-btn" data-command="strikeThrough"><i class="fas fa-strikethrough"></i></button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button class="toolbar-btn" data-command="justifyLeft"><i class="fas fa-align-left"></i></button>
+                        <button class="toolbar-btn" data-command="justifyCenter"><i class="fas fa-align-center"></i></button>
+                        <button class="toolbar-btn" data-command="justifyRight"><i class="fas fa-align-right"></i></button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button class="toolbar-btn" data-command="insertUnorderedList"><i class="fas fa-list-ul"></i></button>
+                        <button class="toolbar-btn" data-command="insertOrderedList"><i class="fas fa-list-ol"></i></button>
+                        <button class="toolbar-btn" data-command="outdent"><i class="fas fa-outdent"></i></button>
+                        <button class="toolbar-btn" data-command="indent"><i class="fas fa-indent"></i></button>
+                    </div>
+                    <div class="toolbar-group">
+                        <button class="toolbar-btn" data-command="insertImage"><i class="fas fa-image"></i></button>
+                        <button class="toolbar-btn" data-command="createLink"><i class="fas fa-link"></i></button>
+                        <button class="toolbar-btn" data-command="unlink"><i class="fas fa-unlink"></i></button>
+                    </div>
+                </div>
+                <div class="note-title-editor">
+                    <input type="text" id="current-note-title" placeholder="Note Title" value="Meeting Notes">
+                </div>
+                <div class="editor-content" id="editor-content" contenteditable="true">
+                    <h2>Team Sync - April 30, 2025</h2>
+                    <p>Attendees: John, Sarah, Mike, Lisa</p>
+                    <h3>Agenda:</h3>
+                    <ol>
+                        <li>Q3 Goals Review</li>
+                        <li>Project Updates</li>
+                        <li>Budget Planning</li>
+                        <li>Open Discussion</li>
+                    </ol>
+                    <h3>Q3 Goals:</h3>
+                    <ul>
+                        <li>Increase user engagement by 15%</li>
+                        <li>Launch new mobile app version</li>
+                        <li>Reduce customer support tickets by 20%</li>
+                    </ul>
+                    <p>We need to focus on prioritizing features that will have the most impact on user engagement metrics while maintaining our quality standards.</p>
+                    <p><strong>Action items:</strong></p>
+                    <ul>
+                        <li>Sarah: Prepare detailed project roadmap</li>
+                        <li>Mike: Analyze user feedback from latest survey</li>
+                        <li>John: Update budget projections</li>
+                        <li>Lisa: Schedule follow-up meetings with each team</li>
+                    </ul>
+                </div>
+                <div class="editor-status">
+                    <span id="save-status">All changes saved</span>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- New Notebook Modal -->
+    <div class="modal" id="new-notebook-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Notebook</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="notebook-name">Notebook Name:</label>
+                    <input type="text" id="notebook-name" placeholder="Enter notebook name">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-btn">Cancel</button>
+                <button class="create-btn" id="create-notebook-btn">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Note Modal -->
+    <div class="modal" id="new-note-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Note</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="note-title">Note Title:</label>
+                    <input type="text" id="note-title" placeholder="Enter note title">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-btn">Cancel</button>
+                <button class="create-btn" id="create-note-btn">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

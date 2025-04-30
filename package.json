@@ -1,0 +1,25 @@
+{
+  "name": "navy-notes",
+  "version": "1.0.0",
+  "description": "A OneNote-style note-taking application with a navy blue theme",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package-win": "electron-packager . NavyNotes --platform=win32 --arch=x64 --icon=icon.ico --prune=true --out=release-builds --version-string.CompanyName=NavyNotes --version-string.FileDescription=NavyNotes --version-string.ProductName=NavyNotes",
+    "package-mac": "electron-packager . NavyNotes --platform=darwin --arch=x64 --icon=icon.icns --prune=true --out=release-builds",
+    "package-linux": "electron-packager . NavyNotes --platform=linux --arch=x64 --icon=icon.png --prune=true --out=release-builds"
+  },
+  "keywords": [
+    "notes",
+    "note-taking",
+    "electron",
+    "onenote"
+  ],
+  "author": "Navy Notes Team",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^25.0.0",
+    "electron-packager": "^17.0.0"
+  },
+  "dependencies": {}
+}
